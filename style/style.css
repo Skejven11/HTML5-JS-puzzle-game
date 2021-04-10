@@ -1,0 +1,14 @@
+body {
+    background-color: black;
+}
+
+#container {
+    margin: 0 auto;
+    width:400px;
+}
+
+#myCanvas {
+    width:400px;
+    height:400px;
+    margin: 65px 160px 65px auto ;
+}
