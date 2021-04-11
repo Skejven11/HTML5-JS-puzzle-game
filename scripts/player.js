@@ -3,15 +3,30 @@ export class Player {
         this.x = 160;
         this.y = 40;
         this.speed = 40;
+
         this.level = map;
         this.currentLevel = 0;
+
         this.playerSprite = new Image();
-        this.playerSprite.src = "images/player.png";
+        this.playerSprite.src = "images/player/player.png";
+        this.currentAnimFranme = 0;
+        this.frameCount = 0;
+
         this.item = null;
+
+        let canvas =  document.getElementById('myCanvas');
+        this.ctx = canvas.getContext('2d');
     }
 
-    draw(ctx) {
-        ctx.drawImage(this.playerSprite, this.x, this.y);
+    draw() {
+        this.frameCount++;
+        if (this.frameCount===11) {
+            this.frameCount=0;
+            this.currentAnimFranme++;
+        }
+        this.ctx.drawImage(this.playerSprite, this.currentAnimFranme*16, 0, 15, 19, this.x+7, this.y, 26, 34);
+        if (this.currentAnimFranme===3) this.currentAnimFranme=0;
+
     }
 
     moveLeft(){
