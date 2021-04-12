@@ -25,7 +25,7 @@ export class Player {
 
     draw() {
         this.frameCount++;
-        if (this.frameCount===11) {
+        if (this.frameCount===8) {
             this.frameCount=0;
             this.currentAnimFrame++;
         }
