@@ -4,6 +4,8 @@ import { maps } from './maps.js';
 
 let canvas = document.getElementById('myCanvas');
 let ctx = canvas.getContext('2d');
+ctx.globalCompositeOperation='destination-over';
+
 canvas.width = 400;
 canvas.height = 400;
 let currentLevel = 0;

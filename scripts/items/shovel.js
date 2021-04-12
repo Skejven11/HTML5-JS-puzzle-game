@@ -3,7 +3,7 @@ import {item} from './items.js';
 export class shovel extends item { //shovel item
     constructor(x, y) {
         super(x, y)
-        this.itemSprite.src = "images/shovel.png";
+        this.itemSprite.src = "images/items/shovel.png";
         this.name = "shovel";
     }
 

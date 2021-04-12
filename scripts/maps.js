@@ -64,6 +64,8 @@ export class maps {
                 this.finish.y = 4;
                 this.items.push(new shovel(6,7));
                 break;
+            case 2:
+                    console.log("twoja stara");
          }
     }
 
@@ -90,7 +92,7 @@ export class maps {
                         ctx.drawImage(this.tileset,33,440,16,16,y*40+2,x*40,40,40);
                         break;
                     case 7:
-                        ctx.drawImage(this.tileset,80,84,16,35,y*40,x*40,40,40);
+                        ctx.drawImage(this.tileset,80,84,16,35,y*40,(x*40)-20,40,60);
                         break;
                     case 8: 
                         ctx.drawImage(this.tileset,44,124,20,20,y*40,x*40,42,40);

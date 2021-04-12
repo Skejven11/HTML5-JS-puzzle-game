@@ -9,8 +9,13 @@ export class Player {
 
         this.playerSprite = new Image();
         this.playerSprite.src = "images/player/player.png";
-        this.currentAnimFranme = 0;
+        this.currentAnimFrame = 0;
         this.frameCount = 0;
+
+        this.smokeSprite = new Image();
+        this.smokeSprite.src = "images/player/smokepuff.png";
+        this.currentSmokeFrame = 0;
+        this.smokeFrameCount = 0;
 
         this.item = null;
 
@@ -22,31 +27,34 @@ export class Player {
         this.frameCount++;
         if (this.frameCount===11) {
             this.frameCount=0;
-            this.currentAnimFranme++;
+            this.currentAnimFrame++;
         }
-        this.ctx.drawImage(this.playerSprite, this.currentAnimFranme*16, 0, 15, 19, this.x+7, this.y, 26, 34);
-        if (this.currentAnimFranme===3) this.currentAnimFranme=0;
-
+        this.ctx.drawImage(this.playerSprite, this.currentAnimFrame*16, 0, 15, 19, this.x+7, this.y, 26, 34);
+        if (this.currentAnimFrame===3) this.currentAnimFrame=0;
     }
 
     moveLeft(){
         if (this.calcColision("l")) return; 
         else this.x -= this.speed; //if there is nothing in the way move the player
+        this.drawSmoke();
     }
 
     moveRight(){
         if (this.calcColision("r")) return;
         else this.x += this.speed; //if there is nothing in the way move the player
+        this.drawSmoke();
     }
 
     moveUp(){
         if (this.calcColision("u")) return;
         else this.y -= this.speed; //if there is nothing in the way move the player
+        this.drawSmoke();
     }
 
     moveDown(){
         if (this.calcColision("d")) return;
         else this.y += this.speed; //if there is nothing in the way move the player
+        this.drawSmoke();
     }
 
     calcColision(dir){ //calculates if something is in a way and does stuff, probably should split it into more functions but cba tbh
@@ -143,5 +151,16 @@ export class Player {
     activateItem() {
         if (!this.item.active) this.item.active = true;
         else this.item.active = false;
+    }
+
+    drawSmoke() {
+        this.smokeFrameCount++;
+        if (this.smokeFrameCount===3) {
+            this.smokeFrameCount=0;
+            this.currentSmokeFrame++;
+        }
+        this.ctx.drawImage(this.smokeSprite, this.currentSmokeFrame*40, 0, 40, 40, this.x+5, this.y+20, 25, 20);
+        if (this.currentSmokeFrame===5) { this.currentSmokeFrame=0; return; }
+        requestAnimationFrame(()=>this.drawSmoke());
     }
 }

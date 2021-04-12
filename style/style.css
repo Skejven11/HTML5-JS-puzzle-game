@@ -2,10 +2,51 @@ body {
     background-color: rgb(72,59,58);
 }
 
-#container {
+#canvasContainer {
     margin: 0 auto;
     width:400px;
 }
+
+#creditsContainer {
+    margin: 80px auto;
+    width:400px;
+}
+
+#linkflex {
+    display:flex;
+}
+
+a {
+    font-size:24px;
+    color:black;
+    font-family: 'Fondamento', cursive;
+    font-weight:bold;
+    margin: 0 30px;
+    text-decoration: none;
+    transition: all 0.8s;
+    transform-origin:65% 50%;
+}
+
+a#game {
+    transition: all 1s;
+}
+
+a#game:hover {
+    color:white;
+    transform:rotate(720deg);
+}
+
+a#music:hover {
+    color:white;
+    transform:rotate(12deg);
+}
+
+a#art:hover {
+    color:white;
+    transform:rotate(-12deg);
+}
+
+
 
 #myCanvas {
     width:400px;
