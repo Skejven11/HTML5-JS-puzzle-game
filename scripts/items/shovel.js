@@ -4,7 +4,7 @@ export class shovel extends item { //shovel item
     constructor(x, y) {
         super(x, y)
         this.itemSprite.src = "images/items/shovel.png";
-        this.name = "shovel";
+        this.name = "hammer";
     }
 
     doThing(player, direction) { //"destroys" selected column

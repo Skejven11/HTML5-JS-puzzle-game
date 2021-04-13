@@ -5,6 +5,7 @@ export class InputHandler { //simple class which controls player's input
         switch (event.keyCode) {
             case 32: //space for activating items
               if (player.item) player.activateItem();
+              console.log(player.item.name);
                 break;
 
             case 37: case 65: //left arrow or a
@@ -29,6 +30,7 @@ export class InputHandler { //simple class which controls player's input
 
               case 82: //r - reset
               player.level.loadlevel(player.currentLevel);
+              player.item=null;
               player.x = 160;
               player.y = 40;
               break;

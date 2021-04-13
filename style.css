@@ -8,12 +8,15 @@ body {
 }
 
 #creditsContainer {
-    margin: 80px auto;
+    margin: 150px auto;
     width:400px;
+    height:150px;
 }
 
 #linkflex {
     display:flex;
+    margin-left:10px;
+    width:350px;
 }
 
 a {
@@ -21,19 +24,15 @@ a {
     color:black;
     font-family: 'Fondamento', cursive;
     font-weight:bold;
-    margin: 0 30px;
+    margin: 0 25px;
     text-decoration: none;
     transition: all 0.8s;
     transform-origin:65% 50%;
 }
 
-a#game {
-    transition: all 1s;
-}
 
 a#game:hover {
     color:white;
-    transform:rotate(720deg);
 }
 
 a#music:hover {

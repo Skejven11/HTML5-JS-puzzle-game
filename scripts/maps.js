@@ -1,4 +1,5 @@
 import {shovel} from './items/shovel.js';
+import {hook} from './items/hook.js';
 
 export class maps {
     constructor() {
@@ -41,7 +42,7 @@ export class maps {
                     [3,4,0,7,0,0,0,0,2,3],
                     [3,6,1,1,1,1,1,1,3,3]
                   ];
-                this.items.push(new shovel(3,3));
+                this.items.push(new shovel(3,2), new hook(4,3));
                 this.blocks=4;
                 this.finish.x = 7;
                 this.finish.y = 8;

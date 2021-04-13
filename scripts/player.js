@@ -75,10 +75,11 @@ export class Player {
             var y = (this.y+this.speed)/this.speed;
         }
 
-        this.level.items.forEach(function (item) { //checks if there is an item in the way, if so pick it up
+        this.level.items.forEach(function (item, index) { //checks if there is an item in the way, if so pick it up
                 if (x===item.x&&y===item.y) { 
+                    if(this.item) this.level.items.push(this.item)
                     this.item=item; 
-                    this.level.items.splice(item);
+                    this.level.items.splice(index, 1);
                     return false; 
                 }
         }.bind(this));
@@ -138,7 +139,7 @@ export class Player {
                         break;
                     }
             }
-            if (this.level.blocks==0) { this.currentLevel++; this.level.loadlevel(this.currentLevel); } //if blocks == 0 then win map
+            if (this.level.blocks==0) { this.currentLevel++; this.x=160; this.y=40; this.level.loadlevel(this.currentLevel); } //if blocks == 0 then win map
             return false;
         } 
         else if (this.level.map[y][x]!=0&&this.level.map[y][x]!=5) {
