@@ -3,8 +3,10 @@ body {
 }
 
 #canvasContainer {
-    margin: 0 auto;
-    width:400px;
+    margin: 60px auto;
+    max-width:1200px;
+    display:flex;
+    flex-wrap:wrap;
 }
 
 #creditsContainer {
@@ -19,37 +21,19 @@ body {
     width:350px;
 }
 
-a {
-    font-size:24px;
-    color:black;
-    font-family: 'Fondamento', cursive;
-    font-weight:bold;
-    margin: 0 25px;
-    text-decoration: none;
-    transition: all 0.8s;
-    transform-origin:65% 50%;
-    text-shadow: 2px 1px 2px rgb(170.0, 141, 122);
-}
-
-
-a#game:hover {
-    color:white;
-}
-
-a#music:hover {
-    color:white;
-    transform:rotate(12deg);
-}
-
-a#art:hover {
-    color:white;
-    transform:rotate(-12deg);
-}
-
 #myCanvas {
+    margin: 25px 100px;
     width:400px;
     height:400px;
-    margin: 65px 160px 65px auto ;
+}
+
+#instructions {
+    width: 250px;
+    height: 400px;
+    background-color: rgb(72,59,58);
+    
+    border: 25px solid #aa8d7a;
+    border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75'%3E%3Cg fill='none' stroke='%23aa8d7a' stroke-width='2'%3E%3Cpath d='M1 1h73v73H1z'/%3E%3Cpath d='M8 8h59v59H8z'/%3E%3Cpath d='M8 8h16v16H8zM51 8h16v16H51zM51 51h16v16H51zM8 51h16v16H8z'/%3E%3C/g%3E%3Cg fill='%23B88846'%3E%3Ccircle cx='16' cy='16' r='2'/%3E%3Ccircle cx='59' cy='16' r='2'/%3E%3Ccircle cx='59' cy='59' r='2'/%3E%3Ccircle cx='16' cy='59' r='2'/%3E%3C/g%3E%3C/svg%3E") 25;
 }
 
 img {
@@ -58,7 +42,7 @@ img {
 }
 
 h1 {
-    margin-top:50px;
+    margin-top:25px;
     margin-bottom:0;
     font-size:80px;
     color:rgb(170.0, 141, 122);
@@ -68,8 +52,46 @@ h1 {
     transition: all 0.2s;
     user-select:none;
     text-shadow: 3px 3px 10px black;
+    width:500px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+h3, p {
+    font-family: 'Fondamento', cursive;
+    font-weight:bold;
+    text-align: center;
+    color:rgb(170.0, 141, 122);
+    text-shadow: 2px 2px 5px black;
+}
+
+a {
+    font-size:24px;
+    color:black;
+    font-family: 'Fondamento', cursive;
+    font-weight:bold;
+    margin: 0 25px;
+    text-decoration: none;
+    transition: all 0.8s;
+    transform-origin:65% 50%;
+    text-align: center;
 }
 
 h1:hover {
     color:rgb(130.0, 101, 82);
+}
+
+
+a#game:hover {
+    color:rgb(170.0, 141, 122);
+}
+
+a#music:hover {
+    color:rgb(170.0, 141, 122);
+    transform:rotate(12deg);
+}
+
+a#art:hover {
+    color:rgb(170.0, 141, 122);
+    transform:rotate(-12deg);
 }
