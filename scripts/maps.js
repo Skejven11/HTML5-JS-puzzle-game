@@ -26,7 +26,7 @@ export class maps {
           this.rand = Math.floor(Math.random()*2);
     }
 
-    loadlevel(level) {
+    loadlevel(level) { //controlls loading of next levels
         this.items=[];
         switch (level) {
             case 0:
@@ -66,7 +66,7 @@ export class maps {
                 this.items.push(new shovel(6,7));
                 break;
             case 2:
-                    console.log("twoja stara");
+                    console.log("level3");
          }
     }
 

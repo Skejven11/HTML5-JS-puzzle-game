@@ -139,7 +139,7 @@ export class Player {
                         break;
                     }
             }
-            if (this.level.blocks==0) { this.currentLevel++; this.x=160; this.y=40; this.level.loadlevel(this.currentLevel); } //if blocks == 0 then win map
+            if (this.level.blocks==0) { this.currentLevel++; this.x=160; this.y=40; this.level.loadlevel(this.currentLevel); this.item=null;} //if blocks == 0 then win map
             return false;
         } 
         else if (this.level.map[y][x]!=0&&this.level.map[y][x]!=5) {
