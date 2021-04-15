@@ -95,3 +95,8 @@ a#art:hover {
     color:rgb(170.0, 141, 122);
     transform:rotate(-12deg);
 }
+
+#itemIcon {
+    width:40px;
+    margin: 0 105px;
+}

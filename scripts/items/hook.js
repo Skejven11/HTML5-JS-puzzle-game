@@ -4,7 +4,9 @@ export class hook extends item { //hook item
     constructor(x, y) {
         super(x, y)
         this.itemSprite.src = "images/items/hook.png";
+        this.itemIconActive = "images/items/hookIconActive.png";
         this.name = "hook";
+        this.description = "Pulls selected box in the opposite direction";
     }
 
     doThing(player, direction) { //pulls selected box in the opposite direction 
@@ -19,7 +21,8 @@ export class hook extends item { //hook item
                         player.level.map[y][x+1]=0;
                         player.level.map[y][x]=5;
                         player.x-=player.speed; 
-                        player.item=null;
+                        player.item="";
+                        player.itemView(player.item);
                     }
                 }
                 break;
@@ -31,7 +34,8 @@ export class hook extends item { //hook item
                         player.level.map[y-1][x]=0;
                         player.level.map[y][x]=5;
                         player.y+=player.speed;      
-                        player.item=null;           
+                        player.item="";
+                        player.itemView(player.item);         
                     }
                 }
                 break;
@@ -43,7 +47,8 @@ export class hook extends item { //hook item
                         player.level.map[y][x-1]=0;
                         player.level.map[y][x]=5;
                         player.x+=player.speed;      
-                        player.item=null;           
+                        player.item="";
+                        player.itemView(player.item);            
                     }
                 }
                 break;
@@ -55,7 +60,8 @@ export class hook extends item { //hook item
                         player.level.map[y+1][x]=0;
                         player.level.map[y][x]=5;
                         player.y-=player.speed;     
-                        player.item=null;           
+                        player.item="";
+                        player.itemView(player.item);           
                     }
                 }
                 break;

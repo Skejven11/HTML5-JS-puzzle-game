@@ -17,10 +17,12 @@ export class Player {
         this.currentSmokeFrame = 0;
         this.smokeFrameCount = 0;
 
-        this.item = null;
+        this.item = "";
 
         let canvas =  document.getElementById('myCanvas');
         this.ctx = canvas.getContext('2d');
+
+        this.itemView(this.item);
     }
 
     draw() {
@@ -80,6 +82,7 @@ export class Player {
                     if(this.item) this.level.items.push(this.item)
                     this.item=item; 
                     this.level.items.splice(index, 1);
+                    this.itemView(item);
                     return false; 
                 }
         }.bind(this));
@@ -139,7 +142,7 @@ export class Player {
                         break;
                     }
             }
-            if (this.level.blocks==0) { this.currentLevel++; this.x=160; this.y=40; this.level.loadlevel(this.currentLevel); this.item=null;} //if blocks == 0 then win map
+            if (this.level.blocks==0) { this.currentLevel++; this.x=160; this.y=40; this.level.loadlevel(this.currentLevel); this.item=""; this.itemView(this.item);} //if blocks == 0 then win map
             return false;
         } 
         else if (this.level.map[y][x]!=0&&this.level.map[y][x]!=5) {
@@ -150,8 +153,8 @@ export class Player {
     }
 
     activateItem() {
-        if (!this.item.active) this.item.active = true;
-        else this.item.active = false;
+        if (!this.item.active) { this.item.active = true; document.getElementById("itemIcon").src = this.item.itemIconActive;}
+        else { this.item.active = false; document.getElementById("itemIcon").src = this.item.itemSprite.src; }
     }
 
     drawSmoke() {
@@ -163,5 +166,17 @@ export class Player {
         this.ctx.drawImage(this.smokeSprite, this.currentSmokeFrame*40, 0, 40, 40, this.x+5, this.y+20, 25, 20);
         if (this.currentSmokeFrame===5) { this.currentSmokeFrame=0; return; }
         requestAnimationFrame(()=>this.drawSmoke());
+    }
+
+    itemView(item) {
+        if (!item) {
+            document.getElementById("itemIcon").src = "images/items/defaultIcon.png";
+            document.getElementById("itemName").innerHTML = "none";
+            document.getElementById("itemDescription").innerHTML = "";
+            return;
+        }
+        document.getElementById("itemIcon").src = item.itemSprite.src;
+        document.getElementById("itemDescription").innerHTML = item.description;
+        document.getElementById("itemName").innerHTML = item.name;
     }
 }

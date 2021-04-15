@@ -4,7 +4,9 @@ export class shovel extends item { //shovel item
     constructor(x, y) {
         super(x, y)
         this.itemSprite.src = "images/items/shovel.png";
+        this.itemIconActive = "images/items/shovelIconActive.png";
         this.name = "hammer";
+        this.description = "Destroys selected column"
     }
 
     doThing(player, direction) { //"destroys" selected column
@@ -15,28 +17,32 @@ export class shovel extends item { //shovel item
                 if (player.level.map[y][x+1]!=7) { document.getElementById('error').play(); }
                 else {
                     player.level.map[y][x+1]=0;
-                    player.item=null;
+                    player.item="";
+                    player.itemView(player.item);
                 }
                 break;
             case "u":
                 if (player.level.map[y-1][x]!=7) { document.getElementById('error').play(); }
                 else {
                     player.level.map[y-1][x]=0;     
-                    player.item=null;           
+                    player.item="";
+                    player.itemView(player.item);           
                 }
                 break;
             case "l":
                 if (player.level.map[y][x-1]!=7) { document.getElementById('error').play(); }
                 else {
                     player.level.map[y][x-1]=0;     
-                    player.item=null;           
+                    player.item="";
+                    player.itemView(player.item);           
                 }
                 break;
             case "d":
                 if (player.level.map[y+1][x]!=7) { document.getElementById('error').play(); }
                 else {
                     player.level.map[y+1][x]=0;     
-                    player.item=null;           
+                    player.item="";
+                    player.itemView(player.item);           
                 }
                 break;
         }

@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <title>Box Quest</title>
     <script type="module" src="scripts/main.js"></script>
+    <link rel="icon" href="images/icon.png">
 
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet"> 
@@ -20,12 +21,16 @@
             <h3>Objectives</h3>
             <p>Push all of the boxes into the trapdoor opening!</p>
             <h3 style="margin-top:75px"> Controls</h3>
-            <p>awsd/arrows - movement</p>
+            <p>wsad/arrows - movement</p>
             <p>space - activate/deactivate equipped item</p>
             <p>r - reset current level</p>
         </div>
         <canvas id="myCanvas"></canvas>
         <div id="instructions">
+            <h3>Equipped Item</h3>
+            <p id="itemName"></p>
+            <img id="itemIcon" src="images/items/defaultIcon.png">
+            <p id="itemDescription"></p>
         </div>
     </div>
 
