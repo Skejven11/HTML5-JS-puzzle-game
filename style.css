@@ -3,7 +3,7 @@ body {
 }
 
 #canvasContainer {
-    margin: 60px auto;
+    margin: 20px auto;
     max-width:1200px;
     display:flex;
     flex-wrap:wrap;
@@ -103,8 +103,4 @@ a#art:hover {
 #itemIcon {
     width:40px;
     margin: 0 105px;
-}
-
-#itemName {
-    margin-top:50px;
 }
