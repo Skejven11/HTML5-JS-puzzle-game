@@ -7,6 +7,7 @@ body {
     max-width:1200px;
     display:flex;
     flex-wrap:wrap;
+    justify-content: center;
 }
 
 #creditsContainer {
@@ -31,8 +32,7 @@ body {
     width: 250px;
     height: 400px;
     background-color: rgb(72,59,58);
-    
-    border: 25px solid #aa8d7a;
+    border: 25px solid rgb(170, 141, 122);
     border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75'%3E%3Cg fill='none' stroke='%23aa8d7a' stroke-width='2'%3E%3Cpath d='M1 1h73v73H1z'/%3E%3Cpath d='M8 8h59v59H8z'/%3E%3Cpath d='M8 8h16v16H8zM51 8h16v16H51zM51 51h16v16H51zM8 51h16v16H8z'/%3E%3C/g%3E%3Cg fill='%23B88846'%3E%3Ccircle cx='16' cy='16' r='2'/%3E%3Ccircle cx='59' cy='16' r='2'/%3E%3Ccircle cx='59' cy='59' r='2'/%3E%3Ccircle cx='16' cy='59' r='2'/%3E%3C/g%3E%3C/svg%3E") 25;
 }
 
@@ -63,6 +63,10 @@ h3, p {
     text-align: center;
     color:rgb(170.0, 141, 122);
     text-shadow: 2px 2px 5px black;
+}
+
+b {
+    color: rgb(211, 197, 117);
 }
 
 a {
@@ -99,4 +103,8 @@ a#art:hover {
 #itemIcon {
     width:40px;
     margin: 0 105px;
+}
+
+#itemName {
+    margin-top:50px;
 }

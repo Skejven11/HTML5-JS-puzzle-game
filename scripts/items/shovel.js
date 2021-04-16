@@ -5,7 +5,7 @@ export class shovel extends item { //shovel item
         super(x, y)
         this.itemSprite.src = "images/items/shovel.png";
         this.itemIconActive = "images/items/shovelIconActive.png";
-        this.name = "hammer";
+        this.name = "Hammer";
         this.description = "Destroys selected column"
     }
 
@@ -15,10 +15,11 @@ export class shovel extends item { //shovel item
         switch (direction) {
             case "r":
                 if (player.level.map[y][x+1]!=7) { document.getElementById('error').play(); }
-                else {
+                else {  
                     player.level.map[y][x+1]=0;
                     player.item="";
                     player.itemView(player.item);
+                    player.step++;
                 }
                 break;
             case "u":
@@ -26,7 +27,8 @@ export class shovel extends item { //shovel item
                 else {
                     player.level.map[y-1][x]=0;     
                     player.item="";
-                    player.itemView(player.item);           
+                    player.itemView(player.item);       
+                    player.step++;    
                 }
                 break;
             case "l":
@@ -34,7 +36,8 @@ export class shovel extends item { //shovel item
                 else {
                     player.level.map[y][x-1]=0;     
                     player.item="";
-                    player.itemView(player.item);           
+                    player.itemView(player.item);    
+                    player.step++;       
                 }
                 break;
             case "d":
@@ -42,7 +45,8 @@ export class shovel extends item { //shovel item
                 else {
                     player.level.map[y+1][x]=0;     
                     player.item="";
-                    player.itemView(player.item);           
+                    player.itemView(player.item);     
+                    player.step++;      
                 }
                 break;
         }

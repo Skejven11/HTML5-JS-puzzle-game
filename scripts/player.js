@@ -6,6 +6,7 @@ export class Player {
 
         this.level = map;
         this.currentLevel = 0;
+        this.steps = 0;
 
         this.playerSprite = new Image();
         this.playerSprite.src = "images/player/player.png";
@@ -23,6 +24,7 @@ export class Player {
         this.ctx = canvas.getContext('2d');
 
         this.itemView(this.item);
+        this.calcScore();
     }
 
     draw() {
@@ -39,24 +41,28 @@ export class Player {
         if (this.calcColision("l")) return; 
         else this.x -= this.speed; //if there is nothing in the way move the player
         this.drawSmoke();
+        this.calcScore();
     }
 
     moveRight(){
         if (this.calcColision("r")) return;
         else this.x += this.speed; //if there is nothing in the way move the player
         this.drawSmoke();
+        this.calcScore();
     }
 
     moveUp(){
         if (this.calcColision("u")) return;
         else this.y -= this.speed; //if there is nothing in the way move the player
         this.drawSmoke();
+        this.calcScore();
     }
 
     moveDown(){
         if (this.calcColision("d")) return;
         else this.y += this.speed; //if there is nothing in the way move the player
         this.drawSmoke();
+        this.calcScore();
     }
 
     calcColision(dir){ //calculates if something is in a way and does stuff, probably should split it into more functions but cba tbh
@@ -178,5 +184,10 @@ export class Player {
         document.getElementById("itemIcon").src = item.itemSprite.src;
         document.getElementById("itemDescription").innerHTML = item.description;
         document.getElementById("itemName").innerHTML = item.name;
+    }
+
+    calcScore(){
+        document.getElementById("steps").innerHTML = this.steps;
+        this.steps++;
     }
 }

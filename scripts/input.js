@@ -34,6 +34,8 @@ export class InputHandler { //simple class which controls player's input
               player.x = 160;
               player.y = 40;
               player.itemView();
+              player.steps=0;
+              player.calcScore();
               break;
         }
       });

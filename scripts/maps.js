@@ -17,6 +17,7 @@ export class maps {
           ];
           this.items = [];
           this.blocks = 4;
+          this.score = 0;
           this.finish = {
               x:3,
               y:3
@@ -27,6 +28,7 @@ export class maps {
     }
 
     loadlevel(level) { //controlls loading of next levels
+        document.getElementById("currentLevel").innerHTML = level+1;
         this.items=[];
         switch (level) {
             case 0:
