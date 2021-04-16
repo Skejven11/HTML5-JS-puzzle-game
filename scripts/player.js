@@ -148,7 +148,7 @@ export class Player {
                         break;
                     }
             }
-            if (this.level.blocks==0) { this.currentLevel++; this.x=160; this.y=40; this.level.loadlevel(this.currentLevel); this.item=""; this.itemView(this.item);} //if blocks == 0 then win map
+            if (this.level.blocks==0) { this.currentLevel++; this.resetPlayer(); return true;} //if blocks == 0 then win map
             return false;
         } 
         else if (this.level.map[y][x]!=0&&this.level.map[y][x]!=5) {
@@ -189,5 +189,15 @@ export class Player {
     calcScore(){
         document.getElementById("steps").innerHTML = this.steps;
         this.steps++;
+    }
+
+    resetPlayer() {
+        this.x=160; 
+        this.y=40; 
+        this.level.loadlevel(this.currentLevel); 
+        this.item=""; 
+        this.itemView(this.item); 
+        this.steps=0;
+        this.calcScore();
     }
 }

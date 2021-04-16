@@ -8,10 +8,9 @@ ctx.globalCompositeOperation='destination-over';
 
 canvas.width = 400;
 canvas.height = 400;
-let currentLevel = 0;
 
 const level = new maps();
-level.loadlevel(currentLevel);
+level.loadlevel(0);
 
 const player = new Player(level);
 new InputHandler(player);

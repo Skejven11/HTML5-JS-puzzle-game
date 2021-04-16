@@ -29,14 +29,8 @@ export class InputHandler { //simple class which controls player's input
                 break;
 
               case 82: //r - reset
-              player.level.loadlevel(player.currentLevel);
-              player.item=null;
-              player.x = 160;
-              player.y = 40;
-              player.itemView();
-              player.steps=0;
-              player.calcScore();
-              break;
+                player.resetPlayer();
+                break;
         }
       });
     }
