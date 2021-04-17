@@ -82,6 +82,7 @@ export class Player {
             var x = this.x/this.speed;
             var y = (this.y+this.speed)/this.speed;
         }
+        if (this.level.finish.x===x&&this.level.finish.y===y) { document.getElementById('error').play(); return true; }
 
         this.level.items.forEach(function (item, index) { //checks if there is an item in the way, if so pick it up
                 if (x===item.x&&y===item.y) { 
@@ -89,7 +90,6 @@ export class Player {
                     this.item=item; 
                     this.level.items.splice(index, 1);
                     this.itemView(item);
-                    return false; 
                 }
         }.bind(this));
 

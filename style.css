@@ -28,7 +28,7 @@ body {
     height:400px;
 }
 
-#instructions {
+.instructions {
     width: 250px;
     height: 400px;
     background-color: rgb(72,59,58);
