@@ -20,26 +20,31 @@ export class InputHandler { //simple class which controls player's input
             case ' ': 
               if (player.item) player.activateItem();
               console.log(player.item.name);
+              event.preventDefault();
                 break;
 
             case "ArrowLeft": case "a": 
                 if (player.item&&player.item.active) player.item.doThing(player, 'l');
                 else player.moveLeft();
+                event.preventDefault();
                 break;
 
             case "ArrowUp": case "w": 
                 if (player.item&&player.item.active) player.item.doThing(player, 'u');
                 else player.moveUp();
+                event.preventDefault();
                 break;
 
             case "ArrowRight": case "d": 
                 if (player.item&&player.item.active) player.item.doThing(player, 'r');
                 else player.moveRight();
+                event.preventDefault();
                 break;
 
             case "ArrowDown": case "s": 
                 if (player.item&&player.item.active) player.item.doThing(player, 'd');
                 else player.moveDown();
+                event.preventDefault();
                 break;
 
               case "r": 
