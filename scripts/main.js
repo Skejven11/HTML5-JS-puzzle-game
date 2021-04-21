@@ -25,7 +25,7 @@ function gameLoop() {
 }
 
 function startGame() {
-    document.getElementsByClassName("canvas-menu")[0].style.visibility = "hidden";
+    document.getElementsByClassName("canvas-menu")[0].style.display = "none";
     var music = document.getElementById("background-music");
     music.volume = 0.4;
     music.play();
