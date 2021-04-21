@@ -19,8 +19,6 @@ export class InputHandler { //simple class which controls player's input
         switch (event.key) {
             case ' ': 
               if (player.item) player.activateItem();
-              console.log(player.item.name);
-              event.preventDefault();
                 break;
 
             case "ArrowLeft": case "a": 
