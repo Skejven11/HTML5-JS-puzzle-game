@@ -159,7 +159,7 @@ export class Player {
     }
 
     activateItem() {
-        if (!this.item.active) { this.item.active = true; document.getElementById("itemIcon").src = this.item.itemIconActive;}
+        if (!this.item.active) { this.item.active = true; document.querySelector(".item-icon").src = this.item.itemIconActive;}
         else { this.item.active = false; document.getElementById("itemIcon").src = this.item.itemSprite.src; }
     }
 
@@ -176,12 +176,12 @@ export class Player {
 
     itemView(item) {
         if (!item) {
-            document.getElementById("itemIcon").src = "images/items/defaultIcon.png";
+            document.querySelector(".item-icon").src = "images/items/defaultIcon.png";
             document.getElementById("itemName").innerHTML = "none";
             document.getElementById("itemDescription").innerHTML = "";
             return;
         }
-        document.getElementById("itemIcon").src = item.itemSprite.src;
+        document.querySelector(".item-icon").src = item.itemSprite.src;
         document.getElementById("itemDescription").innerHTML = item.description;
         document.getElementById("itemName").innerHTML = item.name;
     }

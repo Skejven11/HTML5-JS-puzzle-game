@@ -2,8 +2,8 @@ import { Player } from './player.js';
 import { InputHandler } from './input.js';
 import { maps } from './maps.js';
 
-let canvas = document.getElementById('myCanvas');
-let ctx = canvas.getContext('2d');
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
 ctx.globalCompositeOperation='destination-over';
 
 canvas.width = 400;

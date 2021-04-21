@@ -2,7 +2,11 @@ body {
     background-color: rgb(72,59,58);
 }
 
-#canvasContainer {
+:root {
+    --main-color:rgb(170, 141, 122);
+}
+
+.canvas-container {
     margin: 20px auto;
     max-width:1200px;
     display:flex;
@@ -10,13 +14,13 @@ body {
     justify-content: center;
 }
 
-#creditsContainer {
+.credits-container {
     margin: 0 auto;
     width:400px;
     height:150px;
 }
 
-#linkflex {
+.links-flex {
     display:flex;
     margin-left:10px;
     width:350px;
@@ -28,11 +32,11 @@ body {
     height:400px;
 }
 
-.instructions {
+.side-menu {
     width: 250px;
     height: 400px;
     background-color: rgb(72,59,58);
-    border: 25px solid rgb(170, 141, 122);
+    border: 25px solid var(--main-color);
     border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75'%3E%3Cg fill='none' stroke='%23aa8d7a' stroke-width='2'%3E%3Cpath d='M1 1h73v73H1z'/%3E%3Cpath d='M8 8h59v59H8z'/%3E%3Cpath d='M8 8h16v16H8zM51 8h16v16H51zM51 51h16v16H51zM8 51h16v16H8z'/%3E%3C/g%3E%3Cg fill='%23B88846'%3E%3Ccircle cx='16' cy='16' r='2'/%3E%3Ccircle cx='59' cy='16' r='2'/%3E%3Ccircle cx='59' cy='59' r='2'/%3E%3Ccircle cx='16' cy='59' r='2'/%3E%3C/g%3E%3C/svg%3E") 25;
 }
 
@@ -45,31 +49,32 @@ h1 {
     margin-top:50px;
     margin-bottom:0;
     font-size:80px;
-    color:rgb(170.0, 141, 122);
+    color:var(--main-color);
     font-family: 'Fondamento', cursive;
     font-weight:bold;
     text-align: center;
     transition: all 0.2s;
     user-select:none;
     text-shadow: 3px 3px 10px black;
-    width:500px;
-    margin-left:auto;
-    margin-right:auto;
+}
+
+hr {
+    color:var(--main-color);
 }
 
 h3, p {
     font-family: 'Fondamento', cursive;
     font-weight:bold;
     text-align: center;
-    color:rgb(170.0, 141, 122);
+    color:var(--main-color);
     text-shadow: 2px 2px 5px black;
 }
 
 b {
-    color: rgb(211, 197, 117);
+    color: rgb(211, 189, 116);
 }
 
-a {
+a.credits-link {
     font-size:24px;
     color:black;
     font-family: 'Fondamento', cursive;
@@ -87,20 +92,19 @@ h1:hover {
 
 
 a#game:hover {
-    color:rgb(170.0, 141, 122);
+    color:var(--main-color);
 }
 
 a#music:hover {
-    color:rgb(170.0, 141, 122);
+    color:var(--main-color);
     transform:rotate(12deg);
 }
 
 a#art:hover {
-    color:rgb(170.0, 141, 122);
+    color:var(--main-color);
     transform:rotate(-12deg);
 }
 
-#itemIcon {
-    width:40px;
-    margin: 0 105px;
+.item-icon {
+    margin: 0 43%;
 }

@@ -5,20 +5,15 @@
     <title>Box Quest</title>
     <script type="module" src="scripts/main.js"></script>
     <link rel="icon" href="images/icon.png">
-
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet"> 
-
-<script>
-
-</script>
 </head>
 
 <body>
     <h1>BOX QUEST</h1>
     <h3 style="transform: rotate(-20deg); margin-left:300px">Work in progress</h3>
-    <div id="canvasContainer">
-        <div class="instructions">
+    <div class="canvas-container">
+        <div class="side-menu">
             <h3>Objectives</h3>
             <p>Push all of the boxes into the trapdoor opening!</p>
             <h3 style="margin-top:75px"> Controls</h3>
@@ -27,24 +22,25 @@
             <p>r - reset current level</p>
         </div>
         <canvas id="myCanvas"></canvas>
-        <div class="instructions">
-            <h3>Current level: <b id="currentLevel">0</b></h3>
-            <h3>Score: <b id="score"></b></h3>
-            <h3>Steps done in this level: <b id="steps"></b></h3>
-            <h3 style="margin-top:100px">Equipped item: <b id="itemName"></b></h3>
-            <img id="itemIcon" src="images/items/defaultIcon.png">
+        <div class="side-menu">
+            <h3>Current level: <b id="currentLevel">0</b></h3><hr>
+            <h3>Score: <b id="score"></b></h3><hr>
+            <h3>Steps done in this level: <b id="steps"></b></h3><hr>
+            <h3 style="margin-top:50px">Equipped item: <b id="itemName"></b></h3>
+            <img class="item-icon" src="images/items/defaultIcon.png">
             <p id="itemDescription"></p>
         </div>
     </div>
 
-    <div id="creditsContainer">
+    <div class="credits-container">
         <img src="images/credits.png">
-        <div id="linkflex">
-            <a id="art" href="https://0x72.itch.io/dungeontileset-ii">0x72</a>
-            <a id="game" href="https://github.com/Skejven11">Skejven</a>
-            <a id="music" href="https://www.youtube.com/watch?v=GFXiMfDyexQ">Midori Mizuno</a>
+        <div class="links-flex">
+            <a class="credits-link" id="art" href="https://0x72.itch.io/dungeontileset-ii">0x72</a>
+            <a class="credits-link" id="game" href="https://github.com/Skejven11">Skejven</a>
+            <a class="credits-link" id="music" href="https://www.youtube.com/watch?v=GFXiMfDyexQ">Midori Mizuno</a>
         </div>
     </div>
 
 	<audio id="error" src="sounds/error.wav"></audio>
+    <audio id="easter-egg" src="sounds/easteregg.ogg"></audio>
 </html>
