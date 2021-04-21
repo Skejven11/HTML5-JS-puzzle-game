@@ -160,7 +160,7 @@ export class Player {
 
     activateItem() {
         if (!this.item.active) { this.item.active = true; document.querySelector(".item-icon").src = this.item.itemIconActive;}
-        else { this.item.active = false; document.getElementById("itemIcon").src = this.item.itemSprite.src; }
+        else { this.item.active = false; document.querySelector(".item-icon").src = this.item.itemSprite.src; }
     }
 
     drawSmoke() {

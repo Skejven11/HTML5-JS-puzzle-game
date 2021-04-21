@@ -17,7 +17,7 @@ export class InputHandler { //simple class which controls player's input
         console.log(keySeq);
 
         switch (event.key) {
-            case "Spacebar": 
+            case ' ': 
               if (player.item) player.activateItem();
               console.log(player.item.name);
                 break;
