@@ -3,7 +3,9 @@ export class InputHandler { //simple class which controls player's input
       let keySeq = "";
 
       document.addEventListener("keydown", event => {
-        keySeq+=event.key;
+        
+        if (event.key==="j"||event.key==="p"||event.key==="2") keySeq+=event.key;
+        else keySeq="";
         if (keySeq.length===3) {
           if (keySeq!=="jp2") keySeq="";
           else { 
@@ -12,9 +14,10 @@ export class InputHandler { //simple class which controls player's input
           document.getElementById("easter-egg").play();
           }
         }
+        console.log(keySeq);
 
         switch (event.key) {
-            case "space": 
+            case "Spacebar": 
               if (player.item) player.activateItem();
               console.log(player.item.name);
                 break;
