@@ -1,5 +1,5 @@
 export class Player {
-    constructor(map) {
+    constructor(map, gameState) {
         this.x = 160;
         this.y = 40;
         this.speed = 40;
@@ -22,6 +22,7 @@ export class Player {
 
         let canvas =  document.getElementById('myCanvas');
         this.ctx = canvas.getContext('2d');
+        this.gameState = gameState;
 
         this.itemView(this.item);
         this.calcScore();
@@ -148,7 +149,7 @@ export class Player {
                         break;
                     }
             }
-            if (this.level.blocks==0) { this.currentLevel++; this.resetPlayer(); return true;} //if blocks == 0 then win map
+            if (this.level.blocks===0) { this.currentLevel++; this.resetPlayer(); this.gameState.state=1; return true;} //if blocks == 0 then win map
             return false;
         } 
         else if (this.level.map[y][x]!=0&&this.level.map[y][x]!=5) {
@@ -196,7 +197,10 @@ export class Player {
         this.y=40; 
         this.level.loadlevel(this.currentLevel); 
         this.item=""; 
-        this.itemView(this.item); 
+        this.itemView(this.item);
+        document.getElementById("score").innerHTML = "Your score is "+500+"! <br> Congratulations!";
+        document.getElementById("start-button").innerHTML = "Next level"; 
+        document.getElementById("steps-score").innerHTML = "Steps done in this level: "+this.steps; 
         this.steps=0;
         this.calcScore();
     }

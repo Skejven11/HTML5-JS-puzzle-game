@@ -42,10 +42,16 @@ body {
     position:absolute; 
     top:-12px;
     left:-12px;
-    background-color: rgba(72,59,58,0.8);
+    background-color: rgb(72,59,58);
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    transition: all 1s;
+}
+
+.canvas-menu p {
+    font-size: 24px;
 }
 
 #start-button {
@@ -122,6 +128,10 @@ a#music:hover {
 a#art:hover {
     color:var(--main-color);
     transform:rotate(-12deg);
+}
+
+.canvas-menu-animated {
+    transform: scale(0.0);
 }
 
 .item-icon {

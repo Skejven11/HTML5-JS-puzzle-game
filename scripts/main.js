@@ -9,26 +9,38 @@ canvas.width = 400;
 canvas.height = 400;
 const level = new maps();
 level.loadlevel(0);
-const player = new Player(level);
+var gameState = {state:0}; //0 - starting menu 1 - next level menu 2 - playing
+const player = new Player(level, gameState);
 level.drawMap(ctx);
 const startButton = document.getElementById("start-button");
+new InputHandler(player, gameState);
 
 startButton.addEventListener("click", function(){
-    startGame();
+    if (gameState.state===0) startGame();
+    else if (gameState.state===1) {
+        gameState.state=2;
+        document.getElementsByClassName("canvas-menu")[0].classList.add("canvas-menu-animated");
+        gameLoop();
+    }
 });
 
 function gameLoop() {
     ctx.clearRect(0,0,400,400);
     level.drawMap(ctx);
     player.draw();
-    requestAnimationFrame(gameLoop);
+    if (gameState.state===1) nextLevelMenu();
+    else requestAnimationFrame(gameLoop);
 }
 
 function startGame() {
-    document.getElementsByClassName("canvas-menu")[0].style.display = "none";
+    document.getElementsByClassName("canvas-menu")[0].classList.add("canvas-menu-animated");
     var music = document.getElementById("background-music");
     music.volume = 0.4;
     music.play();
-    new InputHandler(player);
+    gameState.state=2;
     gameLoop();
+}
+
+function nextLevelMenu() {
+    document.getElementsByClassName("canvas-menu")[0].classList.remove("canvas-menu-animated");
 }

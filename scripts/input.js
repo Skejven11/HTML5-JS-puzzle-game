@@ -1,9 +1,10 @@
 export class InputHandler { //simple class which controls player's input
-    constructor(player) {
+    constructor(player, gameState) {
       let keySeq = "";
 
       document.addEventListener("keydown", event => {
-        
+        if (gameState.state!=2) return;
+
         if (event.key==="j"||event.key==="p"||event.key==="2") keySeq+=event.key;
         else keySeq="";
         if (keySeq.length===3) {
@@ -14,8 +15,6 @@ export class InputHandler { //simple class which controls player's input
           document.getElementById("easter-egg").play();
           }
         }
-        console.log(keySeq);
-
         switch (event.key) {
             case ' ': 
               if (player.item) player.activateItem();
