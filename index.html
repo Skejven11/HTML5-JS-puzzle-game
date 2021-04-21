@@ -12,8 +12,8 @@
 <body>
     <h1>BOX QUEST</h1>
     <h3 style="transform: rotate(-20deg); margin-left:300px">Work in progress</h3>
-    <div class="canvas-container">
-        <div class="side-menu">
+    <div class="container">
+        <div class="side-menu fancy-border">
             <h3>Objectives</h3>
             <p>Push all of the boxes into the trapdoor opening!</p>
             <h3 style="margin-top:75px"> Controls</h3>
@@ -21,8 +21,14 @@
             <p>space - activate/deactivate equipped item</p>
             <p>r - reset current level</p>
         </div>
-        <canvas id="myCanvas"></canvas>
-        <div class="side-menu">
+        <div class="canvas-inner">
+            <canvas id="myCanvas"></canvas>
+            <div class="canvas-menu fancy-border">
+                <p></p>
+                <button id="start-button">Begin your quest!</button>
+            </div>
+        </div>
+        <div class="side-menu fancy-border">
             <h3>Current level: <b id="currentLevel">0</b></h3><hr>
             <h3>Score: <b id="score"></b></h3><hr>
             <h3>Steps done in this level: <b id="steps"></b></h3><hr>
@@ -43,4 +49,6 @@
 
 	<audio id="error" src="sounds/error.ogg"></audio>
     <audio id="easter-egg" src="sounds/easteregg.ogg"></audio>
+    <audio id="background-music" src="sounds/Midori Mizuno - Conundrum (Corrscope view).ogg" loop>
+    </audio>
 </html>
