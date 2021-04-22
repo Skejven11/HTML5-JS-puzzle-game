@@ -8,9 +8,13 @@ ctx.globalCompositeOperation='destination-over';
 canvas.width = 400;
 canvas.height = 400;
 const level = new maps();
-level.loadlevel(0);
-var gameState = {state:0}; //0 - starting menu 1 - next level menu 2 - playing
+let currentLevel = 0;
+if (localStorage.getItem("currentLevel")) currentLevel = parseInt(localStorage.getItem("currentLevel"));
+console.log(currentLevel);
+level.loadlevel(currentLevel);
+var gameState = {state:0}; //0 - starting menu 1 - next level menu 2 - playing 3 - ending screen
 const player = new Player(level, gameState);
+player.currentLevel = currentLevel;
 level.drawMap(ctx);
 const startButton = document.getElementById("start-button");
 new InputHandler(player, gameState);
@@ -22,6 +26,13 @@ startButton.addEventListener("click", function(){
         document.getElementsByClassName("canvas-menu")[0].classList.add("canvas-menu-animated");
         gameLoop();
     }
+    else if (gameState.state===3) {
+        player.currentLevel=0;
+        gameState.state=2;
+        document.getElementsByClassName("canvas-menu")[0].classList.add("canvas-menu-animated");
+        player.resetPlayer();
+        gameLoop();
+    }
 });
 
 function gameLoop() {
@@ -29,6 +40,7 @@ function gameLoop() {
     level.drawMap(ctx);
     player.draw();
     if (gameState.state===1) nextLevelMenu();
+    else if (gameState.state===3) endingScreen();
     else requestAnimationFrame(gameLoop);
 }
 
@@ -43,4 +55,11 @@ function startGame() {
 
 function nextLevelMenu() {
     document.getElementsByClassName("canvas-menu")[0].classList.remove("canvas-menu-animated");
+}
+
+function endingScreen() {
+    document.getElementsByClassName("canvas-menu")[0].classList.remove("canvas-menu-animated");
+    document.getElementById("score").innerHTML = "Congratulations! <br> You've beaten Box Quest! <br> Your score is: <b>"+500+"</b>!";
+    document.getElementById("start-button").innerHTML = "Start from beginning"; 
+    document.getElementById("steps-score").innerHTML = "Steps done in this level: <b>"+player.steps+"</b>"; 
 }

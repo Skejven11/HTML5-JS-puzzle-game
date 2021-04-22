@@ -6,6 +6,14 @@ body {
     --main-color:rgb(170, 141, 122);
 }
 
+.main-font {
+    font-family: 'Fondamento', cursive;
+    font-weight:bold;
+    text-align: center;
+    color:var(--main-color);
+    text-shadow: 2px 2px 5px black;
+}
+
 .container {
     margin: 40px auto;
     max-width:1200px;
@@ -55,8 +63,20 @@ body {
 }
 
 #start-button {
-    width:100px;
+    width: 175px;
     height: 50px;
+    background-color:transparent;
+    border-color: var(--main-color);
+    border-radius: 4px;
+    cursor:pointer;
+    font-size:2ch;
+    transition: all 0.5s;
+}
+
+#start-button:hover {
+    width:180px;
+    height:55px;
+    background-color:rgb(68, 55, 55);
 }
 
 .side-menu {
