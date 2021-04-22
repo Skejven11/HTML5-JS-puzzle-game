@@ -35,7 +35,7 @@ function gameLoop() {
 function startGame() {
     document.getElementsByClassName("canvas-menu")[0].classList.add("canvas-menu-animated");
     var music = document.getElementById("background-music");
-    music.volume = 0.4;
+    music.volume = 0.25;
     music.play();
     gameState.state=2;
     gameLoop();

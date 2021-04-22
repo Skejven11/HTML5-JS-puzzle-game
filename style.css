@@ -85,6 +85,7 @@ h1 {
 
 hr {
     color:var(--main-color);
+    border-color:var(--main-color);
 }
 
 h3, p {
@@ -131,7 +132,7 @@ a#art:hover {
 }
 
 .canvas-menu-animated {
-    transform: scale(0.0);
+    transform: scale(0.0) rotate(360deg);
 }
 
 .item-icon {
