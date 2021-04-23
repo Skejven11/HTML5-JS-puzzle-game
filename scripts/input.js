@@ -16,7 +16,7 @@ export class InputHandler { //simple class which controls player's input
           }
         }
         switch (event.key) {
-            case ' ': 
+            case 'f':  
               if (player.item) player.activateItem();
               event.preventDefault();
                 break;
