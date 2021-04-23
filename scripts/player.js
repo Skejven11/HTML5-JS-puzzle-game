@@ -1,3 +1,5 @@
+import { drawLevelMenu, buttonListener } from "./level-menu.js";
+
 export class Player {
     constructor(map, gameState) {
         this.x = 160;
@@ -6,7 +8,7 @@ export class Player {
 
         this.level = map;
         this.currentLevel = 0;
-        this.steps = 0;
+        this.steps = 1;
 
         this.playerSprite = new Image();
         this.playerSprite.src = "images/player/player.png";
@@ -25,7 +27,6 @@ export class Player {
         this.gameState = gameState;
 
         this.itemView(this.item);
-        this.calcScore();
     }
 
     draw() {
@@ -154,8 +155,10 @@ export class Player {
                 this.currentLevel++; 
                 //so far only 6 levels, so if you get past them it's ending screen time
                 if (this.currentLevel===4) { this.gameState.state=3; return true;}
-                this.resetPlayer(); 
                 this.gameState.state=1; 
+                this.resetPlayer(); 
+                drawLevelMenu(this.currentLevel);
+                new buttonListener(this);
                 return true;
             }
             return false;
@@ -170,6 +173,24 @@ export class Player {
     activateItem() {
         if (!this.item.active) { this.item.active = true; document.querySelector(".item-icon").src = this.item.itemIconActive;}
         else { this.item.active = false; document.querySelector(".item-icon").src = this.item.itemSprite.src; }
+    }
+
+    calcScore(){
+        document.getElementById("steps").innerHTML = this.steps;
+        this.steps++;
+    }
+
+    resetPlayer() {
+        this.x=160; 
+        this.y=40; 
+        const storage = localStorage;
+        storage.setItem('currentLevel', this.currentLevel);
+        this.level.loadlevel(this.currentLevel); 
+        this.item=""; 
+        this.itemView(this.item);
+        document.getElementById("steps-score").innerHTML = "Steps done in this level: <b>"+this.steps+"</b>";   
+        this.steps=0;
+        this.calcScore();
     }
 
     drawSmoke() {
@@ -193,25 +214,5 @@ export class Player {
         document.querySelector(".item-icon").src = item.itemSprite.src;
         document.getElementById("itemDescription").innerHTML = item.description;
         document.getElementById("itemName").innerHTML = item.name;
-    }
-
-    calcScore(){
-        document.getElementById("steps").innerHTML = this.steps;
-        this.steps++;
-    }
-
-    resetPlayer() {
-        this.x=160; 
-        this.y=40; 
-        const storage = localStorage;
-        storage.setItem('currentLevel', this.currentLevel);
-        this.level.loadlevel(this.currentLevel); 
-        this.item=""; 
-        this.itemView(this.item);
-        document.getElementById("score").innerHTML = "Your score is <b>"+500+"</b>! <br> Congratulations!";
-        document.getElementById("start-button").innerHTML = "Next level"; 
-        document.getElementById("steps-score").innerHTML = "Steps done in this level: <b>"+this.steps+"</b>"; 
-        this.steps=0;
-        this.calcScore();
     }
 }

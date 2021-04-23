@@ -1,23 +1,28 @@
 import { Player } from './player.js';
 import { InputHandler } from './input.js';
 import { maps } from './maps.js';
+import { buttonListener, drawLevelMenu } from "./level-menu.js";
 
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
-ctx.globalCompositeOperation='destination-over';
 canvas.width = 400;
 canvas.height = 400;
+
 const level = new maps();
 let currentLevel = 0;
-if (localStorage.getItem("currentLevel")) currentLevel = parseInt(localStorage.getItem("currentLevel"));
-console.log(currentLevel);
+const startButton = document.getElementById("start-button");
+if (localStorage.getItem("currentLevel")) { 
+    currentLevel = parseInt(localStorage.getItem("currentLevel"));
+    startButton.innerHTML = "Continue your quest!"
+}
 level.loadlevel(currentLevel);
+drawLevelMenu(currentLevel);
 var gameState = {state:0}; //0 - starting menu 1 - next level menu 2 - playing 3 - ending screen
 const player = new Player(level, gameState);
 player.currentLevel = currentLevel;
 level.drawMap(ctx);
-const startButton = document.getElementById("start-button");
 new InputHandler(player, gameState);
+new buttonListener(player);
 
 startButton.addEventListener("click", function(){
     if (gameState.state===0) startGame();
@@ -53,13 +58,15 @@ function startGame() {
     gameLoop();
 }
 
-function nextLevelMenu() {
-    document.getElementsByClassName("canvas-menu")[0].classList.remove("canvas-menu-animated");
-}
-
 function endingScreen() {
     document.getElementsByClassName("canvas-menu")[0].classList.remove("canvas-menu-animated");
     document.getElementById("score").innerHTML = "Congratulations! <br> You've beaten Box Quest! <br> Your score is: <b>"+500+"</b>!";
     document.getElementById("start-button").innerHTML = "Start from beginning"; 
     document.getElementById("steps-score").innerHTML = "Steps done in this level: <b>"+player.steps+"</b>"; 
+}
+
+function nextLevelMenu() {
+    document.getElementsByClassName("canvas-menu")[0].classList.remove("canvas-menu-animated");
+    document.getElementById("score").innerHTML = "Your score is <b>"+500+"</b>! <br> Congratulations!";
+    document.getElementById("start-button").innerHTML = "Next level";
 }

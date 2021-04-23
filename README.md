@@ -4,7 +4,7 @@ Push all of the boxes in the level into the trapdoor opening!
 To-do:
 - Scoring system
 - 2 last levels (for now)
-- Level menu (you can choose any of the levels you’ve already beaten)
 - Music mute button/slider
 - Player sprite is in front of the columns - might be annoying to fix properly
+- Optimise, better organise and comment code
 
