@@ -7,6 +7,8 @@ const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = 400;
 canvas.height = 400;
+let music = document.getElementById("background-music");
+music.volume = 0.25;
 
 const level = new maps();
 let currentLevel = 0;
@@ -40,6 +42,11 @@ startButton.addEventListener("click", function(){
     }
 });
 
+let volume = document.getElementById("volume");
+volume.addEventListener("change", function(e){
+    music.volume = e.currentTarget.value/100;
+});
+
 function gameLoop() {
     ctx.clearRect(0,0,400,400);
     level.drawMap(ctx);
@@ -52,8 +59,6 @@ function gameLoop() {
 
 function startGame() {
     document.getElementsByClassName("canvas-menu")[0].classList.add("canvas-menu-animated");
-    var music = document.getElementById("background-music");
-    music.volume = 0.25;
     music.play();
     gameState.state=2;
     gameLoop();
