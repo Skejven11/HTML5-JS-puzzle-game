@@ -16,6 +16,7 @@ export class maps {
             [3,3,3,3,3,3,3,3,3,3]
         ]
           this.items = [];
+          this.columns = [];
           this.blocks = 4;
           this.score = 0;
           this.finish = {
@@ -100,10 +101,46 @@ export class maps {
                 this.finish.x = 6;
                 this.finish.y = 5;
                 this.items.push(new hook(5,4), new hook(3,7));
-         }
+                break;
+            case 4:
+                this.map = [
+                    [3,4,1,1,1,1,2,3,3,3],
+                    [3,4,0,7,0,0,13,2,3,3],
+                    [4,1,0,5,5,0,0,2,3,3],
+                    [4,0,0,7,0,0,0,2,3,3],
+                    [4,0,5,0,0,5,9,11,3,3],
+                    [10,8,0,0,7,0,2,3,3,3],
+                    [3,10,8,0,5,0,2,3,3,3],
+                    [3,3,4,0,0,0,2,3,3,3],
+                    [3,3,10,1,1,1,11,3,3,3],
+                    [3,3,3,3,3,3,3,3,3,3]
+                ]
+                this.items = [new shovel(4,3)];
+                this.blocks = 5;
+                this.finish = {x:3,y:4};
+                break;
+            case 5:
+                this.map = [
+                    [3,3,3,4,1,1,2,3,3,3],
+                    [3,3,4,12,0,0,13,1,2,3],
+                    [3,4,12,0,0,0,0,0,13,2],
+                    [3,4,0,0,5,0,0,5,0,2],
+                    [3,4,0,0,9,8,7,0,0,2],
+                    [3,4,0,0,2,4,0,5,7,2],
+                    [3,10,8,0,13,12,0,0,0,2],
+                    [3,3,4,5,0,5,0,0,0,2],
+                    [3,3,10,8,0,0,0,9,1,11],
+                    [3,3,3,10,1,1,1,11,3,3]
+                ]
+                this.items = [new shovel(6,5), new hook(3,6), new hook(5,3), new hook(4,7)];
+                this.blocks = 5;
+                this.finish = {x:6,y:6};
+                break;
+            }
     }
 
-    drawMap(ctx) {
+    drawMap(ctx, player) {
+        this.columns=[];
         for (var x=0;x<400/40;x++) //draw blocks
             for (var y=0;y<400/40;y++) {
                 switch (this.map[x][y]) {
@@ -126,7 +163,7 @@ export class maps {
                         ctx.drawImage(this.tileset,33,440,16,16,y*40+2,x*40,40,40);
                         break;
                     case 7:
-                        ctx.drawImage(this.tileset,80,84,16,35,y*40,(x*40)-20,40,60);
+                        this.columns.push([x,y]);
                         break;
                     case 8: 
                         ctx.drawImage(this.tileset,45,124,20,20,y*40,x*40,42,40);
@@ -151,6 +188,12 @@ export class maps {
             ctx.drawImage(this.tileset,80,176,16,16,this.finish.x*40+5,this.finish.y*40+5,28,28); //draw portal (finish) object
             this.items.forEach( function (item) { //draw every item on the map
                 item.draw();
+            });
+        }
+
+        drawColumns(ctx) {
+            this.columns.forEach(column => {
+                ctx.drawImage(this.tileset,80,84,15,35,column[1]*40,(column[0]*40)-20,35,60);
             });
         }
 }

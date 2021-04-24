@@ -154,7 +154,7 @@ export class Player {
             if (this.level.blocks===0) { 
                 this.currentLevel++; 
                 //so far only 6 levels, so if you get past them it's ending screen time
-                if (this.currentLevel===4) { this.gameState.state=3; return true;}
+                if (this.currentLevel===6) { this.gameState.state=3; return true;}
                 this.gameState.state=1; 
                 this.resetPlayer(); 
                 drawLevelMenu(this.currentLevel);

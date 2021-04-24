@@ -44,6 +44,7 @@ function gameLoop() {
     ctx.clearRect(0,0,400,400);
     level.drawMap(ctx);
     player.draw();
+    level.drawColumns(ctx);
     if (gameState.state===1) nextLevelMenu();
     else if (gameState.state===3) endingScreen();
     else requestAnimationFrame(gameLoop);
@@ -61,7 +62,7 @@ function startGame() {
 function endingScreen() {
     document.getElementsByClassName("canvas-menu")[0].classList.remove("canvas-menu-animated");
     document.getElementById("score").innerHTML = "Congratulations! <br> You've beaten Box Quest! <br> Your score is: <b>"+500+"</b>!";
-    document.getElementById("start-button").innerHTML = "Start from beginning"; 
+    document.getElementById("start-button").innerHTML = "Start from the beginning"; 
     document.getElementById("steps-score").innerHTML = "Steps done in this level: <b>"+player.steps+"</b>"; 
 }
 
