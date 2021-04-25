@@ -178,6 +178,7 @@ export class Player {
 
     calcScore(){
         this.level.score--;
+        if (this.level.score<0) this.level.score=0;
         this.steps++;
         document.getElementById("steps").innerHTML = this.steps;
     }
