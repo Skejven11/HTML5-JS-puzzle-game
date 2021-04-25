@@ -19,7 +19,7 @@ export class shovel extends item { //shovel item
                     player.level.map[y][x+1]=0;
                     player.item="";
                     player.itemView(player.item);
-                    player.step++;
+                    player.calcScore();
                 }
                 break;
             case "u":
@@ -28,7 +28,7 @@ export class shovel extends item { //shovel item
                     player.level.map[y-1][x]=0;     
                     player.item="";
                     player.itemView(player.item);       
-                    player.step++;    
+                    player.calcScore();    
                 }
                 break;
             case "l":
@@ -37,7 +37,7 @@ export class shovel extends item { //shovel item
                     player.level.map[y][x-1]=0;     
                     player.item="";
                     player.itemView(player.item);    
-                    player.step++;       
+                    player.calcScore();       
                 }
                 break;
             case "d":
@@ -46,7 +46,7 @@ export class shovel extends item { //shovel item
                     player.level.map[y+1][x]=0;     
                     player.item="";
                     player.itemView(player.item);     
-                    player.step++;      
+                    player.calcScore();      
                 }
                 break;
         }

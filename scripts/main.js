@@ -66,13 +66,12 @@ function startGame() {
 
 function endingScreen() {
     document.getElementsByClassName("canvas-menu")[0].classList.remove("canvas-menu-animated");
-    document.getElementById("score").innerHTML = "Congratulations! <br> You've beaten Box Quest! <br> Your score is: <b>"+500+"</b>!";
+    document.getElementById("score").innerHTML = "Congratulations! <br> You've beaten Box Quest! <br> Your score is: <b>"+level.score+"</b>!";
     document.getElementById("start-button").innerHTML = "Start from the beginning"; 
-    document.getElementById("steps-score").innerHTML = "Steps done in this level: <b>"+player.steps+"</b>"; 
+    document.getElementById("steps-score").innerHTML = "Steps done in this level: <b>"+player.steps+"</b>";
 }
 
 function nextLevelMenu() {
     document.getElementsByClassName("canvas-menu")[0].classList.remove("canvas-menu-animated");
-    document.getElementById("score").innerHTML = "Your score is <b>"+500+"</b>! <br> Congratulations!";
     document.getElementById("start-button").innerHTML = "Next level";
 }

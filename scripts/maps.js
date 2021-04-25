@@ -48,6 +48,7 @@ export class maps {
                 this.blocks=2;
                 this.finish.x = 5;
                 this.finish.y = 4;
+                this.score=115;
                 break;
             case 1:
                 this.map =[
@@ -65,6 +66,7 @@ export class maps {
                 this.blocks=4;
                 this.finish.x = 7;
                 this.finish.y = 8;
+                this.score=181;
                 break;
             case 2:
                 this.map = [
@@ -83,6 +85,7 @@ export class maps {
                 this.finish.x = 5;
                 this.finish.y = 8;
                 this.items.push(new shovel(7,4));
+                this.score=178;
                 break;
             case 3:
                 this.map = [
@@ -101,6 +104,7 @@ export class maps {
                 this.finish.x = 6;
                 this.finish.y = 5;
                 this.items.push(new hook(5,4), new hook(3,7));
+                this.score=193;
                 break;
             case 4:
                 this.map = [
@@ -118,6 +122,7 @@ export class maps {
                 this.items = [new shovel(4,3)];
                 this.blocks = 5;
                 this.finish = {x:3,y:4};
+                this.score=160;
                 break;
             case 5:
                 this.map = [
@@ -135,6 +140,7 @@ export class maps {
                 this.items = [new shovel(6,5), new hook(3,6), new hook(5,3), new hook(4,7)];
                 this.blocks = 5;
                 this.finish = {x:6,y:6};
+                this.score=175;
                 break;
             }
     }

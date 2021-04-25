@@ -8,7 +8,7 @@ export class Player {
 
         this.level = map;
         this.currentLevel = 0;
-        this.steps = 1;
+        this.steps = 0;
 
         this.playerSprite = new Image();
         this.playerSprite.src = "images/player/player.png";
@@ -154,8 +154,9 @@ export class Player {
             if (this.level.blocks===0) { 
                 this.currentLevel++; 
                 //so far only 6 levels, so if you get past them it's ending screen time
-                if (this.currentLevel===6) { this.gameState.state=3; return true;}
-                this.gameState.state=1; 
+                if (this.currentLevel===6) { this.calcScore(); this.gameState.state=3; return true;}
+                this.gameState.state=1;
+                this.calcScore(); 
                 this.resetPlayer(); 
                 drawLevelMenu(this.currentLevel);
                 new buttonListener(this);
@@ -176,21 +177,23 @@ export class Player {
     }
 
     calcScore(){
-        document.getElementById("steps").innerHTML = this.steps;
+        this.level.score--;
         this.steps++;
+        document.getElementById("steps").innerHTML = this.steps;
     }
 
     resetPlayer() {
         this.x=160; 
         this.y=40; 
+        document.getElementById("steps-score").innerHTML = "Steps done in this level: <b>"+this.steps+"</b>";
+        document.getElementById("score").innerHTML = "Your score is <b>"+this.level.score+"</b>! <br> Congratulations!";
         const storage = localStorage;
         storage.setItem('currentLevel', this.currentLevel);
         this.level.loadlevel(this.currentLevel); 
         this.item=""; 
-        this.itemView(this.item);
-        document.getElementById("steps-score").innerHTML = "Steps done in this level: <b>"+this.steps+"</b>";   
+        this.itemView(this.item);   
         this.steps=0;
-        this.calcScore();
+        document.getElementById("steps").innerHTML = this.steps;
     }
 
     drawSmoke() {
