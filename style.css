@@ -63,7 +63,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transition: all 1s;
+    transition: all 0.8s;
 }
 
 .canvas-menu p {

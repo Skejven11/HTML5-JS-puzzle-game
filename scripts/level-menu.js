@@ -12,11 +12,11 @@ export function drawLevelMenu(currentLevel) {
 
 export class buttonListener {
     constructor(player) {
-        const levelButton= document.getElementsByClassName("level-button");
+        var levelButton= document.getElementsByClassName("level-button");
         for (let i=0; i<levelButton.length;i++) {
             levelButton[i].addEventListener("click", function() {
                 if (player.gameState.state!=2) return;
-                currentLevel = parseInt(levelButton[i].dataset.level);
+                var currentLevel = parseInt(levelButton[i].dataset.level);
                 player.currentLevel = currentLevel;
                 player.resetPlayer();
                 clearBorders(i);
