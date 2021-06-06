@@ -76,8 +76,8 @@ moveLeft(){
     }
 ```
 Tak jak w pokazanej przykładowej metodzie, sama metoda poruszania się jest bardzo prosta. Jednak wywołuje ona metodę calcCollision() która jest już o wiele bardziej skomplikowanym kawałkiem kodu.
-
-
+  
+  
 ```javascript
 calcColision(dir){ //calculates if something is in a way and does stuff
         if (dir==="r") {
@@ -90,8 +90,8 @@ calcColision(dir){ //calculates if something is in a way and does stuff
         }
 ```
 Na początku metody sprawdza ona w jaki kierunek gracz się udał i kalkuluje miejsce w którym **może** się znaleźć.
-
-
+  
+  
 ```javascript
 if (this.level.finish.x===x&&this.level.finish.y===y) { document.getElementById('error').play(); return true; }
 
@@ -105,7 +105,10 @@ if (this.level.finish.x===x&&this.level.finish.y===y) { document.getElementById(
         }.bind(this));
 ```
 Następnie sprawdza, czy miejscem w które gracz chce się udać nie jest "końcem" poziomu, jeżeli jest to kolizja zwraca wartość prawda, czyli gracz nie poruszy się w tę stronę. Metoda dalej sprawdza, czy w tym miejscu nie znajduje się przedmiot. Jeżeli się znajduje, to gracz go podnosi.
-
+  
+  
+###### Popchnięcie skrzynki
+<img src="https://s6.gifyu.com/images/moveBox.gif" width="400" height="400">
 
 ```javascript
         if (this.level.map[y][x]==5) { //checks if movable block is in the way, then calculates if its possible to move it
@@ -129,10 +132,8 @@ Następnie sprawdza, czy miejscem w które gracz chce się udać nie jest "końc
             }
 ```
 Kolejny If to przypadek, gdy w miejscu w które gracz chce się udać znajduje się skrzynia. Jeżeli tak, to sprawdzany jest kierunek w który popchnąć skrzynię oraz to, czy w ogóle da się przepchać skrzynię dalej.
-
-###### Popchnięcie skrzynki
-<img src="https://s6.gifyu.com/images/moveBox.gif" width="400" height="400">
-
+  
+    
 ```javascript
 //if blocks == 0 then win map
             if (this.level.blocks===0) { 
@@ -148,8 +149,8 @@ Kolejny If to przypadek, gdy w miejscu w które gracz chce się udać znajduje s
             }
 ```
 Metoda sprawdza również, czy na mapie pozostały jakiekolwiek skrzynki. Jeżeli nie, wywołuje parę funkcji odpowiadających za chociażby przeniesienie gracza na kolejny poziom, obliczenie wyniku, czy zmianę stanu gry.
-
-
+  
+  
 ```javascript
 else if (this.level.map[y][x]!=0&&this.level.map[y][x]!=5) {
             document.getElementById('error').play();
@@ -163,8 +164,8 @@ Skrypt zawiera również parę innych metod, chociażby odpowiadających za par�
 ### 4.3. Mapy i plik maps.js
 
 Plik maps.js zawiera klasę maps. Głównym atrybutem tej klasy jest dwuwymiarowa tablica z zapisanymi wartościami 0-13. Wartości te odpowiedzialne są za logikę gry oraz za wyrenderowanie odpowiedniego sprite'u w odpowiednim miejscu.
-
-
+  
+  
 ```javascript
 export class maps {
     constructor() {
@@ -194,8 +195,8 @@ Powyżej pokazana jest przykładowa mapa (poziom 3 w grze). Poza tablicą, zawie
 * tablica zawierająca przedmioty oraz ich koordynaty
 
 Kolejne metody jakie posiada klasa związane są z rysowaniem mapy.
-
-
+  
+  
 ```javascript
 drawMap(ctx, player) {
         this.columns=[];
@@ -220,8 +221,8 @@ drawMap(ctx, player) {
         }
 ```
 Metoda drawMap() to nic innego jak zagnieżdżona pętla ze "switch'em" który rysuje kafelki mapy bazując na wartościach dwuwymiarowej tablicy klasy maps, następnie metoda rysuje inne sprite'y, takie jak koniec poziomu czy przedmioty.
-
-
+  
+  
 ### 4.4. Przedmioty, pliki items.js, hook.js oraz shovel.js
 #### items.js
 ```javascript
@@ -236,8 +237,8 @@ export class item { //item class, specific items will inherit stuff from this on
     }
 ```
 Plik items.js to prosta klasa zawierająca parę wartości takich jak sprite przedmiotu i koordynaty. Z tej klasy dziedziczą już odpowiednie przedmioty
-
-
+  
+  
 #### shovel.js
 
 ###### Użycie młota
@@ -254,6 +255,8 @@ export class shovel extends item { //shovel item
     }
 ```
 Plik shovel.js to tak naprawdę młot a nie łopata. Pozostałość po wcześniejszym przedmiocie. Posiada ona metodę doThing() która jest uruchamiana gdy gracz chce użyć przedmiotu w swoim ekwipunku, niszczy ona wybraną kolumnę na mapie. Metoda ta sprawdza, w jakim kierunku gracz aktywował przedmiot i sprawdza, czy na tej płytce znajduje się kolumna. Jeżeli tak, to ją niszczy i pozbywa się przedmiotu.
+  
+  
 ```javascript
 doThing(player, direction) { //"destroys" selected column
         let x = player.x/40;
@@ -274,8 +277,8 @@ doThing(player, direction) { //"destroys" selected column
         }
 }
 ```
-
-
+  
+  
 #### hook.js
 ###### Użycie haka
 <img src="https://s6.gifyu.com/images/hook.gif" width="400" height="400">
@@ -291,6 +294,8 @@ export class hook extends item { //hook item
     }
 ```
 Plik hook.js zawiera klasę hook. Tak jak młot, zawiera ona metodę doThing() (dziedziczy ją po klasie item), tym razem jednak przedmiot sprawia, że wybrana skrzynia zostaje odciągnięta w odwrotnym (niż gdyby ją popchnął) kierunku niż wybrał gracz. Metoda ta jest bardzo podobna do metody doThing() młota, lecz sprawdza ona czy w dane miejce można odciągnąć skrzynie i jeżeli to możliwe, przesuwa ją i gracza w odpowiednie miejsce.
+  
+  
 ```javascript
 doThing(player, direction) { //pulls selected box in the opposite direction 
         let x = player.x/player.speed;
@@ -316,7 +321,7 @@ doThing(player, direction) { //pulls selected box in the opposite direction
         }
 }
 ```
-
+  
 ### 4.5. Menu wyboru poziomu i plik level-menu.js
 Plik level-menu.js odpowiada za logikę wyboru map. Owe menu znajduje się pod grą i wygląd oraz interkacja opierają się na kodzie HTML oraz CSS. Logika przycisków jest jednak zawarta w tym skrypcie. 
 ###### Menu wyboru poziomu
@@ -339,8 +344,8 @@ export class buttonListener {
 }
 ```
 Klasa buttonListener odpowiada za wszystko co ma się stać gdy gracz naciśnie dostępny przycisk do zmiany poziomu. Pobiera ona wtedy HTML'ową wartość atrybutu data przycisku. Zawiera ona to, który poziom ma być załadowany. Resetuje pozycję gracza i wczytuje odpowiedni poziom.
-
-
+  
+  
 ```javascript
 export function drawLevelMenu(currentLevel) {
     var menu = document.getElementsByClassName("level-menu-container")[0];
@@ -355,8 +360,8 @@ export function drawLevelMenu(currentLevel) {
 }
 ```
 Funkcja drawLevelMenu() "dodaje" do HTML'a strony odpowiednią ilość przycisków aktywnych, bazując na tym, na którym poziomie gracz się aktualnie znajduje.
-
-
+  
+  
 ### 4.6. Menu gry
 Menu gry opiera się głównie na HTML'u oraz CSSie. Logika menu zawarta jest w pliku main.js.
 
@@ -377,10 +382,10 @@ function nextLevelMenu() {
 }
 ```
 Dwie powyższe funkcje odpowiadają za to jaka zawartość ma się pokazać na głównym menu gry. Jeżeli gracz pokonał ostatni poziom, zawartość się zmienia, pojawia się np. przycisk do rozpoczęcia gry od nowa i inny tekst. Z każdym wywołaniem tych funkcji usuwana jest klasa "canvas-menu-animated" która powoduje pokazanie się menu za sprawą animacji przejścia w języku CSS.
-
+  
 ## 5. Podsumowanie
 Box Quest to gra której pisanie sprawiło mi bardzo dużo przyjemności. Dzięki niej poznałem język Javascript w o wiele lepszym stopniu niż przed rozpoczęciem prac nad projektem. Gra wśród osób które miały okazję zagrać była lubiana, a stopień jej skomplikowania jest całkiem wysoki jak na mały projekt tego typu. W przyszłości planuję również rozwinąć projekt o edytor map, który zapisywałby klasę maps do pliku json który byłby do pobrania. Na pewno zwiększy to ciekawość gry oraz będzie ciekawym doświadczeniem programistycznym, które, przez to jak skonstruowana jest mapa w Box Quest nie powinna być poza moimi siłami.
-
+  
 ## 6. Literatura
 [1] https://developer.mozilla.org/pl/docs/Web/JavaScript  
 [2] https://developer.mozilla.org/pl/docs/orphaned/Web/Guide/HTML/HTML5  
