@@ -122,7 +122,7 @@ export class maps {
                 this.items = [new shovel(4,3)];
                 this.blocks = 5;
                 this.finish = {x:3,y:4};
-                this.score=160;
+                this.score=162;
                 break;
             case 5:
                 this.map = [

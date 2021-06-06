@@ -16,6 +16,7 @@ body {
 
 .container {
     margin: 0 auto;
+    margin-top:50px;
     max-width:1200px;
     display:flex;
     flex-wrap:wrap;
@@ -83,7 +84,7 @@ body {
 
 .level-button {
     margin-left:10px;
-    width:10px;
+    width:15px;
     height:15px;
     border:none;
     background-color: var(--main-color);
@@ -115,10 +116,25 @@ h1 {
     color:var(--main-color);
     font-family: 'Fondamento', cursive;
     font-weight:bold;
+    font-size: 5vw;
     text-align: center;
     transition: all 0.2s;
     user-select:none;
     text-shadow: 3px 3px 10px black;
+    animation: 2s infinite alternate ease-in-out logo-rotate;
+}
+
+@keyframes logo-rotate {
+    0% {
+        transform: rotate(7deg);
+        text-shadow: 5px 5px 10px black;
+    }
+    100% {
+        transform: rotate(-7deg);
+        text-shadow: -5px -5px 10px black;
+    }
+
+
 }
 
 hr {
