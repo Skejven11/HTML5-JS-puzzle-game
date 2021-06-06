@@ -15,9 +15,6 @@ W grę można zagrać **[tutaj](https://box-quest.glitch.me/)**.
 ###### Pokaz rozgrywki
 <img src="https://s6.gifyu.com/images/demo1.gif" width="1000" height="600">
 
-###### Pokaz rozgrywki z użyciem przedmiotu
-<img src="https://s6.gifyu.com/images/demo2.gif" width="1000" height="600">
-
 ###### Koniec ostatniego poziomu
 <img src="https://s6.gifyu.com/images/demo3efb813325a567018.gif" width="1000" height="600">
 
