@@ -384,7 +384,7 @@ function nextLevelMenu() {
 Dwie powyższe funkcje odpowiadają za to jaka zawartość ma się pokazać na głównym menu gry. Jeżeli gracz pokonał ostatni poziom, zawartość się zmienia, pojawia się np. przycisk do rozpoczęcia gry od nowa i inny tekst. Z każdym wywołaniem tych funkcji usuwana jest klasa "canvas-menu-animated" która powoduje pokazanie się menu za sprawą animacji przejścia w języku CSS.
   
 ## 5. Podsumowanie
-Box Quest to gra której pisanie sprawiło mi bardzo dużo przyjemności. Dzięki niej poznałem język Javascript w o wiele lepszym stopniu niż przed rozpoczęciem prac nad projektem. Gra wśród osób które miały okazję zagrać była lubiana, a stopień jej skomplikowania jest całkiem wysoki jak na mały projekt tego typu. W przyszłości planuję również rozwinąć projekt o edytor map, który zapisywałby klasę maps do pliku json który byłby do pobrania. Na pewno zwiększy to ciekawość gry oraz będzie ciekawym doświadczeniem programistycznym, które, przez to jak skonstruowana jest mapa w Box Quest nie powinna być poza moimi siłami.
+Box Quest to gra której pisanie sprawiło mi bardzo dużo przyjemności. Dzięki niej poznałem język Javascript w o wiele lepszym stopniu niż przed rozpoczęciem prac nad projektem. Gra wśród osób które miały okazję zagrać była lubiana, a stopień jej skomplikowania jest całkiem wysoki jak na mały projekt tego typu. W przyszłości planuję również rozwinąć projekt o edytor map, który zapisywałby klasę maps do pliku json który byłby możliwy do pobrania. Na pewno zwiększy to atrakcyjność gry oraz będzie ciekawym doświadczeniem programistycznym, które, przez to jak skonstruowane są mapy w Box Quest nie powinna być poza moimi siłami.
   
 ## 6. Literatura
 [1] https://developer.mozilla.org/pl/docs/Web/JavaScript  
